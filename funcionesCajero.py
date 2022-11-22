@@ -1,5 +1,14 @@
 import os
 
+global saldo 
+saldo = 83459
+saldoDolar = float(100)
+saldoActual = float(0)
+tna = float(0.75)
+    
+
+
+
 def presentacion():
     print("♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦  ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦  ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦\n")
     print("\t\t\t\tHola Bienvenido al cajero de codo a codo \n")
@@ -29,11 +38,20 @@ def menu(nombre):
 
 
 # 1- consultar saldo, utilice la funcion lambda
-saldoCA = lambda saldo : print("tu saldo actual en pesos es: $" ,saldo, "\n")
-cuentaDolar = lambda saldoDolar : print("tu saldo actual en dolares es: u$S" ,saldoDolar, "\n")
+def saldoActual():
+    global saldo
+    return print("tu saldo actual en pesos es: $" ,saldo, "\n")
 
-# 2- ingresar dinero
-def ingresar(saldo, ingreso):
+
+
+
+
+#cuentaDolar = lambda saldoDolar : print("tu saldo actual en dolares es: u$S" ,saldoDolar, "\n")
+
+# 2- depositar dinero
+def depositar(ingreso):
+    global saldo
+    
     saldo += ingreso
     return print("--Gracias por ingresar su dinero, su saldo actual es de: $",saldo, "--")
 

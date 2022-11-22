@@ -5,11 +5,6 @@ import os
 
 def cajero():
     
-    saldo = float(82500)
-    saldoDolar = float(100)
-    saldoActual = float(0)
-    tna = float(0.75)
-    
         
     presentacion()
         
@@ -31,8 +26,8 @@ def cajero():
             #1consultar saldo
             if opcion == 1:
                 
-                saldoCA(saldo)
-                cuentaDolar(saldoDolar)
+                saldoActual()
+                #cuentaDolar(saldoDolar)
                 esperar()
                 cls()
 
@@ -40,8 +35,9 @@ def cajero():
             elif opcion == 2:
                 
                 ingreso = int(input("digite por teclado el monto de su dinero a ingresar y luego inserte su dinero: "))
+                depositar(ingreso)
                 
-                ingresar(saldo,ingreso)
+
                 esperar()
                 cls()
             #3extraer dinero
