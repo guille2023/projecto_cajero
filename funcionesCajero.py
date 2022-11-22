@@ -1,11 +1,10 @@
 import os
 
-global saldo 
 saldo = float(83459)
 saldoDolar = float(100)
 saldoActual = float(0)
 tna = float(0.75)
-    
+emp = []
 
 
 
@@ -52,8 +51,11 @@ def saldoActual():
 def depositar():
     print("♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣\n")
     global saldo
+    
     ingreso = int(input("digite por teclado el monto de su dinero a ingresar y luego inserte su dinero: "))
     saldo += ingreso
+    emp.append(f"deposito $ {ingreso}")  # esta la utilizo para guardar los movimientos
+    
     print("--Gracias por ingresar su dinero, su saldo actual es de: $",saldo, "--\n")
     return print("♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣")
 
@@ -62,9 +64,12 @@ def depositar():
 def extraer():
     print("♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣\n")
     global saldo
+
     extraccion = int(input("ingresa el monto a extraer: "))
     if (saldo > extraccion) and (extraccion >= 500):
+        emp.append(f"retiro $ -{extraccion}")  # esta la utilizo para guardar los movimientos
         saldo -= extraccion
+
         print("gracias por extraer, tu saldo restante es: $", saldo )
         return print("♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣♣\n")
     elif(saldo >= extraccion) and (extraccion < 500):
@@ -83,7 +88,8 @@ def transferi(tranferir,monto):
     print("estas seguro que deseas realizar esta accion ?\n")
 
     print("#########################################################\n")
-    if(tranferir > saldo ):
+    if( saldo >= tranferir ):
+        emp.append(f"Transferencia $ -{monto}") # esta la utilizo para guardar los movimientos
         saldo -= monto
         confirmar = str(input("ingresa: \n     # si para confirmar la transferencia. \n     # no para cancelar: \n "))
         if confirmar == "si":
@@ -116,6 +122,7 @@ def comprarDolares1(compraDolar):
         conversion = compraDolar * 160
         saldo = saldo - conversion
         if(saldo >= 0):
+            emp.append(f"Compra dolares $ -{saldo}")  # esta la utilizo para guardar los movimientos
             saldoDolar = saldoDolar + compraDolar
             print("#####################################################")
 
@@ -141,7 +148,7 @@ def comprarDolares1(compraDolar):
     elif confirma == "no":
         return print("has cancelado tu compra")       
 
-# vender dolares
+# 6- vender dolares
 def venderDolares(venderDolar):
     global saldo
     global saldoDolar
@@ -151,9 +158,10 @@ def venderDolares(venderDolar):
     print(" ")
     if confirma == "si":
         if( venderDolar <= saldoDolar):
+            
             conversion = venderDolar * 155
             saldo += conversion
-        
+            emp.append(f"Vender dolares $ {saldo}") # esta la utilizo para guardar los movimientos
             saldoDolar = saldoDolar - venderDolar
             print("#####################################################")
 
@@ -172,14 +180,15 @@ def venderDolares(venderDolar):
 
             return print("saldo insuficiente para vender dolares ")
 
+# 7- consultar cbu
 def consultarCbu():
     return print("Numero de CBU: " ,2850590 ,1907000, 12345678)
 
-# 8 crear plazo fijo en pesos
 
+# 8- crear plazo fijo en pesos
 
-
-def simularPlazoFijo(plazoFijo,cantidaDia,tna):
+def simularPlazoFijo(plazoFijo,cantidaDia):
+    global tna
     if (plazoFijo >= 1000) and (cantidaDia >= 30):
         porcentajePlazo = tna * (cantidaDia /365)
         gananciaPLazo = plazoFijo * porcentajePlazo + plazoFijo
@@ -195,6 +204,12 @@ def simularPlazoFijo(plazoFijo,cantidaDia,tna):
 
     else: print("Error, La cantidad de dias es inferior a 30 dias")
 
+# 10- ultimos movimientos
+def ultimoMovimientos():
+    global emp
+    for i in reversed(emp):
+
+        print(i)
 
 # limpiar pantalla
 cls = lambda: os.system ("cls")

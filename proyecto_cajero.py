@@ -10,7 +10,7 @@ def cajero():
         
     clave = int(input("ingresa tu clave: "))
     nombre = str(input("ingresa tu nombre: "))
-        
+    
     cls()
     if clave == 1234:
 
@@ -82,6 +82,9 @@ def cajero():
             elif opcion == 7:
                 consultarCbu()
 
+                esperar()
+                cls()
+
             # 8 simulador de plazo fijo en pesos
             elif opcion == 8:
                 
@@ -98,11 +101,17 @@ def cajero():
                 print("♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦  ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦  ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦\n")
                 
 
-                simularPlazoFijo(plazoFijo, cantidaDia, tna)
+                simularPlazoFijo(plazoFijo, cantidaDia)
 
-            
+                
 
             #9ver ultimos movimientos
+            elif opcion == 9:
+                ultimoMovimientos()
+                
+                print("")
+                esperar()
+                cls()
 
             #10salir de la cuenta
             elif opcion == 10:
@@ -133,3 +142,4 @@ cajero()
 # 13- creo una funcion lambda esperar para que la interaccion con el programa no sea tan brusca 
 # 14- utilizo git 
 # 15- Creo variables globales 
+# 16- creo la funcion ultimo movimientos
