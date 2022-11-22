@@ -27,15 +27,14 @@ def cajero():
             if opcion == 1:
                 
                 saldoActual()
-                #cuentaDolar(saldoDolar)
+        
                 esperar()
                 cls()
 
             #2depositar dinero
             elif opcion == 2:
                 
-                ingreso = int(input("digite por teclado el monto de su dinero a ingresar y luego inserte su dinero: "))
-                depositar(ingreso)
+                depositar()
                 
 
                 esperar()
@@ -43,38 +42,47 @@ def cajero():
             #3extraer dinero
             elif opcion == 3:
 
-                extraccion = int(input("ingresa el monto a extraer: "))
+                extraer()
 
-                extraer(saldo,extraccion,saldoActual)
+                esperar()
+                cls()
 
             #4transferir dinero
             elif opcion == 4:
                 tranferir = int(input("ingrese el cbu de la cuenta a la cual deseas tranferir: "))
                 monto = int(input("ingresa el monto a tranferir: "))
                 
-                transferi(tranferir,monto,saldo,saldoActual)
-
+                transferi(tranferir,monto)
+                esperar()
+                cls()
 
             #5comprar dolares
             elif opcion == 5:
-                comprarDolares(saldo)
+                comprarDolares()
 
                 compraDolar = float(input("ingresa el monto de dolares a comprar: "))
 
 
-                comprarDolares1(compraDolar,saldo,saldoDolar)      
+                comprarDolares1(compraDolar)      
+
+                esperar()
+                cls()
+
+
             #6vender dolares
             elif opcion == 6:
 
                 venderDolar = float(input("ingresa el monto de dolares a vender: "))
-                venderDolares(venderDolar,saldo,saldoDolar)
+                venderDolares(venderDolar)
 
+                esperar()
+                cls()
 
             #7 consultar CBU
             elif opcion == 7:
                 consultarCbu()
 
-            # 8 crear plazo fijo en pesos
+            # 8 simulador de plazo fijo en pesos
             elif opcion == 8:
                 
                 print("♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦  ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦  ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦\n")
@@ -124,3 +132,4 @@ cajero()
 # 12- agrego la funcion salir del programa
 # 13- creo una funcion lambda esperar para que la interaccion con el programa no sea tan brusca 
 # 14- utilizo git 
+# 15- Creo variables globales 
