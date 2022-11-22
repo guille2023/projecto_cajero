@@ -3,7 +3,7 @@ from  funcionesCajero import *
 import os
 
 
-def cajero():
+def main():
     
         
     presentacion()
@@ -88,14 +88,12 @@ def cajero():
             # 8 simulador de plazo fijo en pesos
             elif opcion == 8:
                 
-                print("♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦  ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦  ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦\n")
-                print ("El monto minimo a invertir es de 1000 pesos \n")
-
-                plazoFijo = float(input("Ingresa el monto a invertir en plazo fijo: \n"))
+                
+                plazoFijo = float(input("Ingresa el monto a invertir en plazo fijo: "))
                 print("♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦  ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦  ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦\n")
 
                 
-                print("El tiempo minimo es de 30 dias\n")
+                print("El tiempo minimo es de 30 dias")
 
                 cantidaDia = int(input("Durante cuanto dias: \n"))
                 print("♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦  ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦  ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦\n")
@@ -103,7 +101,8 @@ def cajero():
 
                 simularPlazoFijo(plazoFijo, cantidaDia)
 
-                
+                esperar()
+                cls()
 
             #9ver ultimos movimientos
             elif opcion == 9:
@@ -121,8 +120,10 @@ def cajero():
     print("========================================================\n")
     print("Gracias por utilizar los servicios del cajero automatico \n")
     print("========================================================")
-cajero()
 
+
+if __name__ == '__main__':
+    main()
 
 
 
@@ -139,7 +140,8 @@ cajero()
 # 10- elimine la opcion de elegir idioma , ya que me parecio que es reescribir codigo
 # 11- agrego un iterador while , para interartuar con el programa
 # 12- agrego la funcion salir del programa
-# 13- creo una funcion lambda esperar para que la interaccion con el programa no sea tan brusca 
+# 13- creo una funcion lambda esperar para que la interaccion con el programa no sea tan brusco
 # 14- utilizo git 
 # 15- Creo variables globales 
-# 16- creo la funcion ultimo movimientos
+# 16- creo la funcion ultimos movimientos
+# 17- reeplazo la funcion principal cajero x main

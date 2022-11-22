@@ -182,13 +182,24 @@ def venderDolares(venderDolar):
 
 # 7- consultar cbu
 def consultarCbu():
-    return print("Numero de CBU: " ,2850590 ,1907000, 12345678)
+    print("♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦  ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦  ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦\n")
+    print("Numero de CBU: " ,2850590 ,1907000, 12345678,"\n")
+    return print("♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦  ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦  ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦\n")
+    
 
 
 # 8- crear plazo fijo en pesos
 
 def simularPlazoFijo(plazoFijo,cantidaDia):
     global tna
+
+    print("♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦  ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦  ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦\n")
+    print("Este es un simulador de plazo fijo\n")
+    print(f"LA TASA NOMINAL ANUAL ES DE: % {tna*100}\n")
+    print ("El monto minimo a invertir es de 1000 pesos \n")
+
+
+
     if (plazoFijo >= 1000) and (cantidaDia >= 30):
         porcentajePlazo = tna * (cantidaDia /365)
         gananciaPLazo = plazoFijo * porcentajePlazo + plazoFijo
@@ -204,9 +215,13 @@ def simularPlazoFijo(plazoFijo,cantidaDia):
 
     else: print("Error, La cantidad de dias es inferior a 30 dias")
 
+
+
 # 10- ultimos movimientos
 def ultimoMovimientos():
     global emp
+    print("♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦  ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦  ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦\n")
+    print("ULTIMOS MOVIMIENTOS\n")
     for i in reversed(emp):
 
         print(i)
@@ -214,5 +229,5 @@ def ultimoMovimientos():
 # limpiar pantalla
 cls = lambda: os.system ("cls")
 
-# funcion esperar
+# funcion lambda esperar
 esperar = lambda:type(input("presione enter para continuar......"))
