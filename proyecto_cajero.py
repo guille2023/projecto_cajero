@@ -16,7 +16,7 @@ def main():
 
         
         opcion = 0
-        while opcion < 10:
+        while opcion <= 10:
             menu(nombre)
 
             opcion = int(input("ingresa tu opcion: "))
@@ -114,7 +114,10 @@ def main():
 
             #10salir de la cuenta
             elif opcion == 10:
-                pass
+                break
+
+            elif opcion > 10:
+                print("opcion incorrecta")
     else:
         print("clave incorrecta")
     print("========================================================\n")
